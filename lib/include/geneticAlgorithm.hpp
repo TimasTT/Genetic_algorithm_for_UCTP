@@ -1,0 +1,8 @@
+//
+// Created by timas on 27.07.2021.
+//
+
+#ifndef UCTP_GENETICALGORITHM_HPP
+#define UCTP_GENETICALGORITHM_HPP
+
+#endif //UCTP_GENETICALGORITHM_HPP
