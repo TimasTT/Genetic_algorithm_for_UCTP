@@ -9,6 +9,7 @@
 
 namespace genalg {
 
+    class
 }
 
 #endif  // INCLUDE_GENETICTRANSFORMATIONS_HPP

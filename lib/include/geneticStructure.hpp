@@ -40,6 +40,8 @@ namespace genalg {
     class IChromosome {
     public:
         virtual ~IChromosome();
+
+        virtual std::list<std::shared_ptr<Gen>> getChromosome() const = 0;
     };
 
 
@@ -49,12 +51,16 @@ namespace genalg {
 
     class ChromosomeTime: public IChromosome {
     private:
-        std::list<std::unique_ptr<Gen>> chromosome;
+        std::list<std::shared_ptr<Gen>> chromosome;
 
     public:
         ChromosomeTime();
 
         ChromosomeTime(const std::vector<Block> &, const std::vector<int> &);
+
+        ChromosomeTime(const std::list<std::shared_ptr<Gen>>&, const std::list<std::shared_ptr<Gen>>&);
+
+        std::list<std::shared_ptr<Gen>> getChromosome() const override;
     };
 
 
@@ -64,13 +70,17 @@ namespace genalg {
 
     class ChromosomeAuditory: public IChromosome {
     private:
-        std::list<std::unique_ptr<Gen>> chromosome;
+        std::list<std::shared_ptr<Gen>> chromosome;
 
     public:
         ChromosomeAuditory();
 
         ChromosomeAuditory(const std::vector<Block> &, const std::vector<int> &,
                            const std::vector<int> &);
+
+        ChromosomeAuditory(const std::list<std::shared_ptr<Gen>>&, const std::list<std::shared_ptr<Gen>>&);
+
+        std::list<std::shared_ptr<Gen>> getChromosome() const override;
     };
 
 
@@ -108,7 +118,7 @@ namespace genalg {
         Population();
 
         Population(std::vector<Block> &, std::vector<int> &, std::vector<int> &,
-                   std::vector<int> &, size_t);
+                   std::vector<int> &);
     };
 
 }
