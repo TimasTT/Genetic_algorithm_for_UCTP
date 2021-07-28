@@ -4,11 +4,12 @@
 
 #include <utility>
 
-#include "geneticAlgorithm.hpp"
+#include "geneticStructure.hpp"
 
 // Gen
 
-genalg::Gen::Gen(const int &val): value(val) {}
+genalg::Gen::Gen(const int &val)
+        : value(val) {}
 
 void genalg::Gen::changeValue(const int &val) {
     value = val;
@@ -72,13 +73,13 @@ genalg::Individual::Individual(const std::vector<Block> &blocks,
 // Populatiom
 
 genalg::Population::Population(std::vector<Block> &blocks_, std::vector<int> &auditoryType1_,
-                               std::vector<int> &auditoryType2_, std::vector<int> &time_): blocks(
-        std::move(blocks_)), auditoryType1(std::move(auditoryType1_)), auditoryType2(
-        std::move(auditoryType2_)), time(std::move(time_)) {
-    std::for_each(blocks.begin(), blocks.end(), [&](const auto &block) {
-        population.emplace_back(
-                std::make_unique<Individual>(blocks, auditoryType1, auditoryType2, time));
-    });
+                               std::vector<int> &auditoryType2_, std::vector<int> &time_,
+                               size_t populationSize = POPULATION_SIZE)
+        : blocks(std::move(blocks_)), auditoryType1(std::move(auditoryType1_)),
+          auditoryType2(std::move(auditoryType2_)), time(std::move(time_)) {
+
+    population.emplace_back(
+            std::make_unique<Individual>(blocks, auditoryType1, auditoryType2, time));
 }
 
 genalg::Population::Population() = default;

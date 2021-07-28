@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <memory>
-#include "geneticAlgorithm.hpp"
+#include <geneticStructure.hpp>
 
 int main() {
     std::vector<genalg::Block> blocks;

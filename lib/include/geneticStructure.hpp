@@ -13,6 +13,7 @@
 
 namespace genalg {
 
+#define POPULATION_SIZE 50
     /**
      * \brief Elementary block in algorithm
      *
@@ -107,7 +108,7 @@ namespace genalg {
         Population();
 
         Population(std::vector<Block> &, std::vector<int> &, std::vector<int> &,
-                   std::vector<int> &);
+                   std::vector<int> &, size_t);
     };
 
 }
