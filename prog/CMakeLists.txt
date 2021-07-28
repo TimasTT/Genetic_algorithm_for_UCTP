@@ -1,1 +1,2 @@
 add_executable(GeneticAlg main.cpp)
+target_link_libraries(GeneticAlg GeneticAlgorithm)
