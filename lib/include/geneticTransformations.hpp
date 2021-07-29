@@ -9,7 +9,22 @@
 
 namespace genalg {
 
-    class
+    class PopulationTransformation {
+    private:
+        std::shared_ptr<Population> population;
+
+        std::vector<int> penaltyList;
+
+        void populationReduce();
+
+        void populationCrossing();
+
+    public:
+        PopulationTransformation(std::shared_ptr<Population>&&);
+
+        void populationIterate();
+    };
+
 }
 
 #endif  // INCLUDE_GENETICTRANSFORMATIONS_HPP

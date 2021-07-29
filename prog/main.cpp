@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <geneticStructure.hpp>
+#include <geneticTransformations.hpp>
 
 int main() {
     std::vector<genalg::Block> blocks;
@@ -33,6 +34,8 @@ int main() {
                                                                                           AuditoryType1,
                                                                                           AuditoryType2,
                                                                                           AllTimes);
+
+    genalg::PopulationTransformation(std::move(Population)).populationIterate();
 
     return 0;
 }

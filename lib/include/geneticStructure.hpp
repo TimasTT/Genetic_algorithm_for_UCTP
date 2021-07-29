@@ -9,11 +9,13 @@
 #include <list>
 #include <vector>
 #include <algorithm>
+
 #include "auxiliary.hpp"
 
 namespace genalg {
 
-#define POPULATION_SIZE 50
+#define POPULATION_SIZE 64
+
     /**
      * \brief Elementary block in algorithm
      *
@@ -41,7 +43,9 @@ namespace genalg {
     public:
         virtual ~IChromosome();
 
-        virtual std::list<std::shared_ptr<Gen>> getChromosome() const = 0;
+        virtual const std::vector<Gen> &getChromosome() const = 0;
+
+        virtual int repetitionsCalculate() const = 0;
     };
 
 
@@ -51,16 +55,20 @@ namespace genalg {
 
     class ChromosomeTime: public IChromosome {
     private:
-        std::list<std::shared_ptr<Gen>> chromosome;
+        std::vector<Gen> chromosome;
 
     public:
         ChromosomeTime();
 
         ChromosomeTime(const std::vector<Block> &, const std::vector<int> &);
 
-        ChromosomeTime(const std::list<std::shared_ptr<Gen>>&, const std::list<std::shared_ptr<Gen>>&);
+        ChromosomeTime(std::vector<Gen> &&, std::vector<Gen> &&);
 
-        std::list<std::shared_ptr<Gen>> getChromosome() const override;
+        void changeOneGen(const std::vector<Block> &, const std::vector<int> &);
+
+        int repetitionsCalculate() const override;
+
+        const std::vector<Gen> &getChromosome() const override;
     };
 
 
@@ -70,17 +78,20 @@ namespace genalg {
 
     class ChromosomeAuditory: public IChromosome {
     private:
-        std::list<std::shared_ptr<Gen>> chromosome;
+        std::vector<Gen> chromosome;
 
     public:
         ChromosomeAuditory();
 
-        ChromosomeAuditory(const std::vector<Block> &, const std::vector<int> &,
-                           const std::vector<int> &);
+        ChromosomeAuditory(const std::vector<Block> &, const std::vector<int> &, const std::vector<int> &);
 
-        ChromosomeAuditory(const std::list<std::shared_ptr<Gen>>&, const std::list<std::shared_ptr<Gen>>&);
+        ChromosomeAuditory(std::vector<Gen> &&, std::vector<Gen> &&);
 
-        std::list<std::shared_ptr<Gen>> getChromosome() const override;
+        void changeOneGen(const std::vector<Block> &, const std::vector<int> &, const std::vector<int> &);
+
+        int repetitionsCalculate() const override;
+
+        const std::vector<Gen> &getChromosome() const override;
     };
 
 
@@ -90,14 +101,23 @@ namespace genalg {
 
     class Individual {
     private:
-        std::unique_ptr<IChromosome> chromosomeTime;
-        std::unique_ptr<IChromosome> chromosomeAuditory;
+        std::shared_ptr<ChromosomeTime> chromosomeTime;
+        std::shared_ptr<ChromosomeAuditory> chromosomeAuditory;
 
     public:
         Individual();
 
         Individual(const std::vector<Block> &, const std::vector<int> &, const std::vector<int> &,
                    const std::vector<int> &);
+
+        Individual(std::vector<Gen> &&, std::vector<Gen> &&, std::vector<Gen> &&, std::vector<Gen> &&);
+
+        void changeGens(const std::vector<Block> &, const std::vector<int> &, const std::vector<int> &,
+                        const std::vector<int> &);
+
+        const std::shared_ptr<ChromosomeTime> &getTimeChromosome();
+
+        const std::shared_ptr<ChromosomeAuditory> &getAuditoryChromosome();
     };
 
 
@@ -107,7 +127,7 @@ namespace genalg {
 
     class Population {
     private:
-        std::vector<std::unique_ptr<Individual>> population;
+        std::vector<std::shared_ptr<Individual>> population;
 
         std::vector<Block> blocks;
         std::vector<int> auditoryType1;
@@ -117,8 +137,15 @@ namespace genalg {
     public:
         Population();
 
-        Population(std::vector<Block> &, std::vector<int> &, std::vector<int> &,
-                   std::vector<int> &);
+        Population(std::vector<Block> &, std::vector<int> &, std::vector<int> &, std::vector<int> &);
+
+        const std::vector<Block> &getBlocks() const;
+
+        std::vector<std::shared_ptr<Individual>> &getPopulation();
+
+        void crossingover();
+
+        void mutation();
     };
 
 }
