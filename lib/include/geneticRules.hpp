@@ -9,8 +9,6 @@
 
 namespace genalg {
 
-#define ITERATIONS 3
-
     class IRule {
     public:
         virtual ~IRule();

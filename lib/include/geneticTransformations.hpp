@@ -9,18 +9,45 @@
 
 namespace genalg {
 
+    /**
+     * \brief Population observer
+     */
+
+    class PopulationObserver {
+    private:
+        std::shared_ptr<Individual> individualWithoutFlaws;
+
+    public:
+        PopulationObserver();
+
+        void populationWithoutFlawsPrepared(std::shared_ptr<Individual> &&);
+
+        const std::vector<Gen> &getChromosomeTime() const;
+
+        const std::vector<Gen> &getChromosomeAuditory() const;
+    };
+
+
+    /**
+     * \brief Population transformation
+     */
+
     class PopulationTransformation {
     private:
         std::shared_ptr<Population> population;
 
+        std::shared_ptr<PopulationObserver> populationObserver;
+
         std::vector<int> penaltyList;
 
-        void populationReduce();
+        enum class PopulationState {
+            POPULATION_NOT_PREPARED = 0, POPULATION_PREPARED = 1
+        };
 
-        void populationCrossing();
+        PopulationState populationReduce();
 
     public:
-        PopulationTransformation(std::shared_ptr<Population>&&);
+        PopulationTransformation(std::shared_ptr<Population> &&, std::shared_ptr<PopulationObserver> &);
 
         void populationIterate();
     };

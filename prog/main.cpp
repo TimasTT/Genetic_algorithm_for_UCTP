@@ -35,7 +35,11 @@ int main() {
                                                                                           AuditoryType2,
                                                                                           AllTimes);
 
-    genalg::PopulationTransformation(std::move(Population)).populationIterate();
+    std::shared_ptr<genalg::PopulationObserver> populationObserver = std::make_shared<genalg::PopulationObserver>();
+
+    genalg::PopulationTransformation(std::move(Population), populationObserver).populationIterate();
+    std::vector<genalg::Gen> time(populationObserver->getChromosomeTime());
+    std::vector<genalg::Gen> auditory(populationObserver->getChromosomeAuditory());
 
     return 0;
 }

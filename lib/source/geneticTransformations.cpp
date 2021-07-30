@@ -13,18 +13,19 @@ namespace genalg {
 
     // Population transformation
 
-    PopulationTransformation::PopulationTransformation(std::shared_ptr<Population> &&population_)
-            : population(std::move(population_)) {}
+    PopulationTransformation::PopulationTransformation(std::shared_ptr<Population> &&population_,
+                                                       std::shared_ptr<PopulationObserver> &populationObserver_)
+            : population(std::move(population_)), populationObserver(populationObserver_) {}
 
     void PopulationTransformation::populationIterate() {
-        for (int i = 0; i < ITERATIONS; ++i) {
-            populationReduce();
+        while(true) {
+            if (populationReduce() == PopulationState::POPULATION_PREPARED) break;
             population->crossingover();
             population->mutation();
         }
     }
 
-    void PopulationTransformation::populationReduce() {
+    PopulationTransformation::PopulationState PopulationTransformation::populationReduce() {
         penaltyList.clear();
         for (const auto &individual : population->getPopulation()) {
             int result = 0;
@@ -41,6 +42,13 @@ namespace genalg {
         std::vector<int> sortedPenalties = penaltyList;
         std::sort(sortedPenalties.begin(), sortedPenalties.end());
 
+        for (size_t individualIndex = 0; individualIndex < penaltyList.size(); ++individualIndex) {
+            if (penaltyList[individualIndex] == 0) {
+                populationObserver->populationWithoutFlawsPrepared(std::move(population->getPopulation()[individualIndex]));
+                return PopulationState::POPULATION_PREPARED;
+            }
+        }
+
         int populationEdge = sortedPenalties[sortedPenalties.size() / 2];
 
 // delete individuals with more than population edge flaws
@@ -54,5 +62,25 @@ namespace genalg {
             if (populationCounter == 0) break;
             populationCounter--;
         }
+
+        return PopulationState::POPULATION_NOT_PREPARED;
     }
+
+    // Population Observer
+
+    PopulationObserver::PopulationObserver() = default;
+
+
+    void PopulationObserver::populationWithoutFlawsPrepared(std::shared_ptr<Individual> &&individual_) {
+        individualWithoutFlaws = std::move(individual_);
+    }
+
+    const std::vector<Gen> &PopulationObserver::getChromosomeTime() const {
+        return individualWithoutFlaws->getTimeChromosome()->getChromosome();
+    }
+
+    const std::vector<Gen> &PopulationObserver::getChromosomeAuditory() const {
+        return individualWithoutFlaws->getAuditoryChromosome()->getChromosome();
+    }
+
 }
