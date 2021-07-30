@@ -24,14 +24,14 @@
       - stage: u-tests
         name: "Unit-tests"
         script:
-          - ../tests/tests.cpp
-          - ../prog/main.cpp
+          - ./tests/geneticAlgTests
+          - ./prog/GeneticAlg
 
       - stage: memcheck
         name: "Memory check"
         script:
-          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ../tests/tests.cpp
-          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ../prog/main.cpp
+          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./tests/geneticAlgTests
+          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./prog/GeneticAlg
 
       - stage: static_analysis
         name: "Static analysis"
