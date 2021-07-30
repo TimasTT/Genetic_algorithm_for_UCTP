@@ -2,6 +2,7 @@
 
   install:
     - pip install cpplint
+    - git submodule update --init --recursive
 
   addons:
     apt:
@@ -16,6 +17,7 @@
     - cd cmake-build-debug
     - cmake ../
     - make
+    - ../
 
   jobs:
     include:
@@ -23,13 +25,15 @@
         name: "Unit-tests"
         script:
           - ./tests/tests.cpp
+          - ./prog/main.cpp
 
       - stage: memcheck
         name: "Memory check"
         script:
           - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./tests/tests.cpp
+          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./prog/main.cpp
 
       - stage: static_analysis
         name: "Static analysis"
         script:
-          - cppcheck --enable=all --error-exitcode=1 --inconclusive lib/include/* lib/src/* tests/*
+          - cppcheck --enable=all --error-exitcode=1 --inconclusive lib/include/* lib/source/* tests/*

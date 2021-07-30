@@ -27,7 +27,7 @@ namespace genalg {
         int value;
 
     public:
-        Gen(const int &);
+        explicit Gen(const int &);
 
         void changeValue(const int &);
 
