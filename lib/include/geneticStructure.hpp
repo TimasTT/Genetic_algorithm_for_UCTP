@@ -36,7 +36,10 @@ namespace genalg {
 
 
     /**
+     * \brief Chromosome interface
      *
+     * A chromosome contains sequential genes, each corresponding to a block.
+     * Genes and blocks are linked in order.
      */
 
     class IChromosome {
@@ -50,7 +53,10 @@ namespace genalg {
 
 
     /**
+     * \brief Time chromosome
      *
+     * The genes of this chromosome are the time at which the lesson (block) takes place,
+     * they correspond to the blocks (the connection is the order).
      */
 
     class ChromosomeTime: public IChromosome {
@@ -73,7 +79,10 @@ namespace genalg {
 
 
     /**
+     * \brief Auditory chromosome
      *
+     * The genes of this chromosome are the audience in which the lesson is held (block),
+     * they correspond to the blocks (the link is the order).
      */
 
     class ChromosomeAuditory: public IChromosome {
@@ -96,7 +105,9 @@ namespace genalg {
 
 
     /**
+     * \brief Individual
      *
+     * Individual with blocks - one schedule.
      */
 
     class Individual {
@@ -122,7 +133,9 @@ namespace genalg {
 
 
     /**
+     * \brief Population
      *
+     * Population contains many individuals (schedules).
      */
 
     class Population {
@@ -143,7 +156,15 @@ namespace genalg {
 
         std::vector<std::shared_ptr<Individual>> &getPopulation();
 
+        /**
+         * Getting a new individual by crossing two individuals.
+         */
+
         void crossingover();
+
+        /**
+         * Replacement of random genes in an individual.
+         */
 
         void mutation();
     };

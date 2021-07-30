@@ -7,7 +7,6 @@
 
 #include <utility>
 #include <memory>
-#include <iostream>
 
 namespace genalg {
 
@@ -18,7 +17,7 @@ namespace genalg {
             : population(std::move(population_)), populationObserver(populationObserver_) {}
 
     void PopulationTransformation::populationIterate() {
-        while(true) {
+        while (true) {
             if (populationReduce() == PopulationState::POPULATION_PREPARED) break;
             population->crossingover();
             population->mutation();
@@ -70,7 +69,6 @@ namespace genalg {
 
     PopulationObserver::PopulationObserver() = default;
 
-
     void PopulationObserver::populationWithoutFlawsPrepared(std::shared_ptr<Individual> &&individual_) {
         individualWithoutFlaws = std::move(individual_);
     }
@@ -81,6 +79,10 @@ namespace genalg {
 
     const std::vector<Gen> &PopulationObserver::getChromosomeAuditory() const {
         return individualWithoutFlaws->getAuditoryChromosome()->getChromosome();
+    }
+
+    const std::shared_ptr<Individual> &PopulationObserver::getIndividual() const {
+        return individualWithoutFlaws;
     }
 
 }

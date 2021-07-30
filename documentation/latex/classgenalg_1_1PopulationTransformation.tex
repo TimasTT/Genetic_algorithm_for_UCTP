@@ -1,0 +1,43 @@
+\hypertarget{classgenalg_1_1PopulationTransformation}{}\doxysection{genalg\+::Population\+Transformation Class Reference}
+\label{classgenalg_1_1PopulationTransformation}\index{genalg::PopulationTransformation@{genalg::PopulationTransformation}}
+
+
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}} transformation.  
+
+
+
+
+{\ttfamily \#include $<$genetic\+Transformations.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgenalg_1_1PopulationTransformation_a5d4dad12fc96ba93ff88c975dd3f7ea0}{Population\+Transformation}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgenalg_1_1Population}{Population}} $>$ \&\&, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgenalg_1_1PopulationObserver}{Population\+Observer}} $>$ \&)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classgenalg_1_1Population}{Population}} transformate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgenalg_1_1PopulationTransformation_a97ce1c5d1640ecef63c3da8efd07c1b3}\label{classgenalg_1_1PopulationTransformation_a97ce1c5d1640ecef63c3da8efd07c1b3}} 
+void {\bfseries population\+Iterate} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}} transformation. 
+
+This class controls the work of the genetic algorithm. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgenalg_1_1PopulationTransformation_a5d4dad12fc96ba93ff88c975dd3f7ea0}\label{classgenalg_1_1PopulationTransformation_a5d4dad12fc96ba93ff88c975dd3f7ea0}} 
+\index{genalg::PopulationTransformation@{genalg::PopulationTransformation}!PopulationTransformation@{PopulationTransformation}}
+\index{PopulationTransformation@{PopulationTransformation}!genalg::PopulationTransformation@{genalg::PopulationTransformation}}
+\doxysubsubsection{\texorpdfstring{PopulationTransformation()}{PopulationTransformation()}}
+{\footnotesize\ttfamily genalg\+::\+Population\+Transformation\+::\+Population\+Transformation (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgenalg_1_1Population}{Population}} $>$ \&\&}]{population\+\_\+,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgenalg_1_1PopulationObserver}{Population\+Observer}} $>$ \&}]{population\+Observer\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}} transformate. 
+
+Transformation takes place in 3 stages\+: 1) Reducing population by removing the species with the greatest number of errors. 2) Increase in the population due to the crossing of the remaining individuals. 3) \mbox{\hyperlink{classgenalg_1_1Population}{Population}} mutation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/include/genetic\+Transformations.\+hpp\item 
+lib/source/genetic\+Transformations.\+cpp\end{DoxyCompactItemize}

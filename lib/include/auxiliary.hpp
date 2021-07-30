@@ -9,7 +9,21 @@
 
 namespace genalg {
 
+    /**
+     * \brief Get random number from range
+     *
+     * \param[in] min Minimal number of range
+     * \param[in] max Maximum number of range
+     *
+     */
+
     int getRandomNumber(const int &min, const int &max);
+
+    /**
+     * \brief Block - Schedule unit
+     *
+     * One group corresponds to one subject taught by one teacher at one time.
+     */
 
     struct Block {
         int blockId;

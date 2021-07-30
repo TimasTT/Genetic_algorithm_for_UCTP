@@ -183,8 +183,8 @@ namespace genalg {
                                               population[indivInd]->getAuditoryChromosome()->getChromosome().begin() + partIndex);
             std::vector<Gen> newAuditoryChromosomePart2;
             newAuditoryChromosomePart2.insert(newAuditoryChromosomePart2.begin(),
-                                          population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin() + partIndex,
-                                          population[indivInd + 1]->getAuditoryChromosome()->getChromosome().end());
+                                              population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin() + partIndex,
+                                              population[indivInd + 1]->getAuditoryChromosome()->getChromosome().end());
 
             std::shared_ptr<Individual> newIndividual = std::make_shared<Individual>(std::move(newTimeChromosomePart1),
                                                                                      std::move(newTimeChromosomePart2),
@@ -195,25 +195,25 @@ namespace genalg {
 
             std::vector<Gen> newTimeChromosomePart1Second;
             newTimeChromosomePart1Second.insert(newTimeChromosomePart1Second.begin(),
-                                          population[indivInd + 1]->getTimeChromosome()->getChromosome().begin(),
-                                          population[indivInd + 1]->getTimeChromosome()->getChromosome().begin() + partIndex);
+                                                population[indivInd + 1]->getTimeChromosome()->getChromosome().begin(),
+                                                population[indivInd + 1]->getTimeChromosome()->getChromosome().begin() + partIndex);
             std::vector<Gen> newTimeChromosomePart2Second;
             newTimeChromosomePart2Second.insert(newTimeChromosomePart2Second.begin(),
-                                          population[indivInd]->getTimeChromosome()->getChromosome().begin() + partIndex,
-                                          population[indivInd]->getTimeChromosome()->getChromosome().end());
+                                                population[indivInd]->getTimeChromosome()->getChromosome().begin() + partIndex,
+                                                population[indivInd]->getTimeChromosome()->getChromosome().end());
             std::vector<Gen> newAuditoryChromosomePart1Second;
             newAuditoryChromosomePart1Second.insert(newAuditoryChromosomePart1Second.begin(),
-                                              population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin(),
-                                              population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin() + partIndex);
+                                                    population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin(),
+                                                    population[indivInd + 1]->getAuditoryChromosome()->getChromosome().begin() + partIndex);
             std::vector<Gen> newAuditoryChromosomePart2Second;
             newAuditoryChromosomePart2Second.insert(newAuditoryChromosomePart2Second.begin(),
-                                          population[indivInd]->getAuditoryChromosome()->getChromosome().begin() + partIndex,
-                                          population[indivInd]->getAuditoryChromosome()->getChromosome().end());
+                                                    population[indivInd]->getAuditoryChromosome()->getChromosome().begin() + partIndex,
+                                                    population[indivInd]->getAuditoryChromosome()->getChromosome().end());
 
             std::shared_ptr<Individual> newIndividualSecond = std::make_shared<Individual>(std::move(newTimeChromosomePart1Second),
-                                                                                     std::move(newTimeChromosomePart2Second),
-                                                                                     std::move(newAuditoryChromosomePart1Second),
-                                                                                     std::move(newAuditoryChromosomePart2Second));
+                                                                                           std::move(newTimeChromosomePart2Second),
+                                                                                           std::move(newAuditoryChromosomePart1Second),
+                                                                                           std::move(newAuditoryChromosomePart2Second));
 
             population.emplace_back(newIndividualSecond);
 

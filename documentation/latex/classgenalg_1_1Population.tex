@@ -1,0 +1,53 @@
+\hypertarget{classgenalg_1_1Population}{}\doxysection{genalg\+::Population Class Reference}
+\label{classgenalg_1_1Population}\index{genalg::Population@{genalg::Population}}
+
+
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}}.  
+
+
+
+
+{\ttfamily \#include $<$genetic\+Structure.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgenalg_1_1Population_af0d8fab3121cbd905c04726537e411fb}\label{classgenalg_1_1Population_af0d8fab3121cbd905c04726537e411fb}} 
+{\bfseries Population} (std\+::vector$<$ \mbox{\hyperlink{structgenalg_1_1Block}{Block}} $>$ \&, std\+::vector$<$ int $>$ \&, std\+::vector$<$ int $>$ \&, std\+::vector$<$ int $>$ \&)
+\item 
+\mbox{\Hypertarget{classgenalg_1_1Population_a875c5396d6a0a4f94377ac8de545e36a}\label{classgenalg_1_1Population_a875c5396d6a0a4f94377ac8de545e36a}} 
+const std\+::vector$<$ \mbox{\hyperlink{structgenalg_1_1Block}{Block}} $>$ \& {\bfseries get\+Blocks} () const
+\item 
+\mbox{\Hypertarget{classgenalg_1_1Population_aee8ce6af9056318f5f08975603d284aa}\label{classgenalg_1_1Population_aee8ce6af9056318f5f08975603d284aa}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgenalg_1_1Individual}{Individual}} $>$ $>$ \& {\bfseries get\+Population} ()
+\item 
+void \mbox{\hyperlink{classgenalg_1_1Population_a9ee51a7808a41caddb261004bc45a6e5}{crossingover}} ()
+\item 
+void \mbox{\hyperlink{classgenalg_1_1Population_a896fa840d14e721c7a022d3a083818bb}{mutation}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}}. 
+
+\mbox{\hyperlink{classgenalg_1_1Population}{Population}} contains many individuals (schedules). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgenalg_1_1Population_a9ee51a7808a41caddb261004bc45a6e5}\label{classgenalg_1_1Population_a9ee51a7808a41caddb261004bc45a6e5}} 
+\index{genalg::Population@{genalg::Population}!crossingover@{crossingover}}
+\index{crossingover@{crossingover}!genalg::Population@{genalg::Population}}
+\doxysubsubsection{\texorpdfstring{crossingover()}{crossingover()}}
+{\footnotesize\ttfamily void genalg\+::\+Population\+::crossingover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getting a new individual by crossing two individuals. \mbox{\Hypertarget{classgenalg_1_1Population_a896fa840d14e721c7a022d3a083818bb}\label{classgenalg_1_1Population_a896fa840d14e721c7a022d3a083818bb}} 
+\index{genalg::Population@{genalg::Population}!mutation@{mutation}}
+\index{mutation@{mutation}!genalg::Population@{genalg::Population}}
+\doxysubsubsection{\texorpdfstring{mutation()}{mutation()}}
+{\footnotesize\ttfamily void genalg\+::\+Population\+::mutation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Replacement of random genes in an individual. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/include/genetic\+Structure.\+hpp\item 
+lib/source/genetic\+Structure.\+cpp\end{DoxyCompactItemize}

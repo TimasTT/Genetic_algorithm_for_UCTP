@@ -2,12 +2,14 @@
 // Created by timas on 27.07.2021.
 //
 
-#include <iostream>
 #include <memory>
 #include <geneticStructure.hpp>
 #include <geneticTransformations.hpp>
 
 int main() {
+
+    // Algorithm work with large number of auditors.
+
     std::vector<genalg::Block> blocks;
     std::vector<int> AuditoryType1;
     std::vector<int> AuditoryType2;
@@ -30,10 +32,7 @@ int main() {
     for (int i = 0; i < 100; ++i) {
         AllTimes.push_back(i);
     }
-    std::shared_ptr<genalg::Population> Population = std::make_shared<genalg::Population>(blocks,
-                                                                                          AuditoryType1,
-                                                                                          AuditoryType2,
-                                                                                          AllTimes);
+    std::shared_ptr<genalg::Population> Population = std::make_shared<genalg::Population>(blocks, AuditoryType1, AuditoryType2, AllTimes);
 
     std::shared_ptr<genalg::PopulationObserver> populationObserver = std::make_shared<genalg::PopulationObserver>();
 

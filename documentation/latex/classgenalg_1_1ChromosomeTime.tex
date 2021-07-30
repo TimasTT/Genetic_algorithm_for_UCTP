@@ -1,0 +1,48 @@
+\hypertarget{classgenalg_1_1ChromosomeTime}{}\doxysection{genalg\+::Chromosome\+Time Class Reference}
+\label{classgenalg_1_1ChromosomeTime}\index{genalg::ChromosomeTime@{genalg::ChromosomeTime}}
+
+
+Time chromosome.  
+
+
+
+
+{\ttfamily \#include $<$genetic\+Structure.\+hpp$>$}
+
+
+
+Inheritance diagram for genalg\+::Chromosome\+Time\+:
+% FIG 0
+
+
+Collaboration diagram for genalg\+::Chromosome\+Time\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgenalg_1_1ChromosomeTime_adf6560382bc6c5e139cd9f6cd7878ce6}\label{classgenalg_1_1ChromosomeTime_adf6560382bc6c5e139cd9f6cd7878ce6}} 
+{\bfseries Chromosome\+Time} (const std\+::vector$<$ \mbox{\hyperlink{structgenalg_1_1Block}{Block}} $>$ \&, const std\+::vector$<$ int $>$ \&)
+\item 
+\mbox{\Hypertarget{classgenalg_1_1ChromosomeTime_a42b1cf24b8dc2d8c03acc0dede58e125}\label{classgenalg_1_1ChromosomeTime_a42b1cf24b8dc2d8c03acc0dede58e125}} 
+{\bfseries Chromosome\+Time} (std\+::vector$<$ \mbox{\hyperlink{classgenalg_1_1Gen}{Gen}} $>$ \&\&, std\+::vector$<$ \mbox{\hyperlink{classgenalg_1_1Gen}{Gen}} $>$ \&\&)
+\item 
+\mbox{\Hypertarget{classgenalg_1_1ChromosomeTime_a4c7997943e4d77d2b93be151398497ff}\label{classgenalg_1_1ChromosomeTime_a4c7997943e4d77d2b93be151398497ff}} 
+void {\bfseries change\+One\+Gen} (const std\+::vector$<$ \mbox{\hyperlink{structgenalg_1_1Block}{Block}} $>$ \&, const std\+::vector$<$ int $>$ \&)
+\item 
+\mbox{\Hypertarget{classgenalg_1_1ChromosomeTime_ad26173418b68cae8290fbbe25d08bdaa}\label{classgenalg_1_1ChromosomeTime_ad26173418b68cae8290fbbe25d08bdaa}} 
+int {\bfseries repetitions\+Calculate} () const override
+\item 
+\mbox{\Hypertarget{classgenalg_1_1ChromosomeTime_a8b872dd0144ed826e8c1addf5000e7cb}\label{classgenalg_1_1ChromosomeTime_a8b872dd0144ed826e8c1addf5000e7cb}} 
+const std\+::vector$<$ \mbox{\hyperlink{classgenalg_1_1Gen}{Gen}} $>$ \& {\bfseries get\+Chromosome} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Time chromosome. 
+
+The genes of this chromosome are the time at which the lesson (block) takes place, they correspond to the blocks (the connection is the order). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/include/genetic\+Structure.\+hpp\item 
+lib/source/genetic\+Structure.\+cpp\end{DoxyCompactItemize}
