@@ -1,2 +1,2 @@
 # Genetic_algorithm_for_UCTP
-https://travis-ci.com/TimasTT/Genetic_algorithm_for_UCTP.svg?branch=main
+<a href="https://travis-ci.com/github/TimasTT/Genetic_algorithm_for_UCTP"><img alt="TravisCI" src="https://travis-ci.com/TimasTT/Genetic_algorithm_for_UCTP.svg?branch=main" /></a>
