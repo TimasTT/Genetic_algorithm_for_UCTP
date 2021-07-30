@@ -17,23 +17,22 @@
     - cd cmake-build-debug
     - cmake ../
     - make
-    - ../
 
   jobs:
     include:
       - stage: u-tests
         name: "Unit-tests"
         script:
-          - ./tests/tests.cpp
-          - ./prog/main.cpp
+          - ../tests/tests.cpp
+          - ../prog/main.cpp
 
       - stage: memcheck
         name: "Memory check"
         script:
-          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./tests/tests.cpp
-          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ./prog/main.cpp
+          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ../tests/tests.cpp
+          - valgrind --leak-check=full --leak-resolution=med --track-origins=yes --vgdb=no ../prog/main.cpp
 
       - stage: static_analysis
         name: "Static analysis"
         script:
-          - cppcheck --enable=all --error-exitcode=1 --inconclusive lib/include/* lib/source/* tests/*
+          - cppcheck --enable=all --error-exitcode=1 --inconclusive ../lib/include/* ../lib/source/* ../tests/*
