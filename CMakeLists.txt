@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(BUILD_TESTS "Build tests" ON)
 option(BUILD_COVERAGE "Build coverage" OFF)
 
-project(UCTP_algorithm VERSION 1.2.0)
+project(uctp_genetic_algorithm VERSION 1.2.0)
 
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
