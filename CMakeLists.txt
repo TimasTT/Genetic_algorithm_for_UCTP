@@ -27,3 +27,11 @@ if (BUILD_TESTS)
     add_subdirectory(tests)
 endif ()
 
+install(TARGETS GeneticAlgorithm
+        EXPORT "${PROJECT_NAME}-targets"
+        RUNTIME DESTINATION bin
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        INCLUDES DESTINATION include
+        )
+
